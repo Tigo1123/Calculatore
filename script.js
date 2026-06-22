@@ -4,13 +4,17 @@ window.onload = function () {
     historyDiv.innerText = saved;
   }
 };
-let display = document.getElementById("display");
+
 let historyDiv = document.getElementById("history");
 historyDiv.innerText = localStorage.getItem("history") || "";
+
 function clearHistory() {
   historyDiv.innerText = "";
   localStorage.removeItem("history");
 }
+
+let display = document.getElementById("display");
+
 function press(value) {
   if (display.innerText === "0") {
     display.innerText = value;
@@ -21,7 +25,6 @@ function press(value) {
 
 function calculate() {
   let value = display.innerText;
-
   let numbers = value.split(/[\+\-\*\%\/]/);
 
   let num1 = Number(numbers[0]);
@@ -61,6 +64,7 @@ function deleteLast() {
     display.innerText = value.slice(0, -1);
   }
 }
+
 function clearDisplay() {
   display.innerText = "0";
 }
